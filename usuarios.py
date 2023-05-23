@@ -10,12 +10,12 @@ class Usuarios:
     def inserir_user(self, usuario):
         self.cursor.execute("INSERT INTO usuarios (nomeCompleto) VALUES (?);", usuario)
         self.conn.commit()
-        return "Usuário inserido com sucesso!"
+        return "\033[1;34mUsuário inserido com sucesso!\033[m"
 
     def atualizar_user(self, usuario):
         self.cursor.execute("UPDATE usuarios SET nomeCompleto = ? WHERE idUsuarios = ?;", usuario)
         self.conn.commit()
-        return "Usuário atualizado com sucesso!"
+        return "\033[1;34mUsuário atualizado com sucesso!\033[m"
         
     def consultar_user(self):
         self.cursor.execute("SELECT * FROM usuarios;")
@@ -26,9 +26,9 @@ class Usuarios:
                 print(resultado[item][0], resultado[item][1])
 
         input("Pressione <ENTER> para coninuar...")
-        return "Consulta realizada"
+        return "\033[1;34mConsulta realizada com sucesso!\033[m"
 
     def excluir_user(self, usuario):
         self.cursor.execute("DELETE FROM usuarios WHERE idUsuarios = ?;", usuario)
         self.conn.commit()
-        return "Usuário excluído com sucesso!"
+        return "\033[1;34mUsuário excluído com sucesso!\033[m"
